@@ -1,0 +1,73 @@
+<div class="dashboard">
+    <div class="upper-tables-section">
+        <div class="campaigns-area">
+            <label>Campaigns</label>
+            <scrollable-table watch="campaignsTableData">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th sortable-header col="name">Name</th>
+                            <th sortable-header col="name">Launch URL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="campaign in campaignsTableData" row-id="{{ campaign.id }}" ng-class="{info: selected == campaign.id}">
+                            <td>{{ campaign.name }}</td>
+                            <td>{{ campaign.launch_url }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </scrollable-table>
+        </div>
+        <div class="vertical-separator"></div>
+        <div class="operational-contacts-area">
+            <label>Operational Contacts</label>
+            <scrollable-table watch="operationalContactsTableData">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th sortable-header col="contact_id">contactID</th>
+                            <th sortable-header col="campaign_id">campaignID</th>
+                            <th sortable-header col="targeted" style="width: 11%">targeted</th>
+                            <th sortable-header col="ignored" style="width: 10%">ignored</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="operationalContact in operationalContactsTableData" row-id="{{ operationalContact.id }}" ng-class="{info: selected == operationalContact.id}">
+                            <td>{{ operationalContact.contact_id }}</td>
+                            <td>{{ operationalContact.campaign_id }}</td>
+                            <td>{{ operationalContact.targeted }}</td>
+                            <td>{{ operationalContact.ignored }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </scrollable-table>
+        </div>
+    </div>
+    <div class="horizontal-separator"></div>
+    <div class="bottom-tables-section">
+        <label>Contacts</label>
+        <scrollable-table watch="contactsTableData">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th sortable-header col="name">Name</th>
+                        <th sortable-header col="phone_number">Phone Number</th>
+                        <th sortable-header col="phone_code">Phone Code</th>
+                        <th sortable-header col="status" style="width: 12%">Status</th>
+                        <th sortable-header col="valid" style="width: 5%">Valid</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="contact in contactsTableData" row-id="{{ contact.id }}" ng-class="{info: selected == contact.id}">
+                        <td>{{ contact.name }}</td>
+                        <td>{{ contact.phone_number }}</td>
+                        <td>{{ contact.phone_code }}</td>
+                        <td>{{ contact.status }}</td>
+                        <td>{{ contact.valid }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </scrollable-table>
+    </div>
+</div>
